@@ -1,3 +1,4 @@
+
 def welcome
   # code #welcome here
   puts "Welcome to the Blackjack Table"
@@ -20,7 +21,7 @@ end
 
 def get_user_input
   # code #get_user_input here
- answer = gets.chomp
+  gets.chomp
 end
 
 def end_game(card_total)
@@ -41,12 +42,11 @@ end
 def hit?(card_total)
   # code hit? here
   prompt_user
-  get_user_input 
-  if get_user_input = "s"
+  input = get_user_input
+  if input == "s"
   return card_total
-  elsif get_user_input = "h"
-  card_total += deal_card
-  return card_total
+  elsif input == "h"
+  return card_total += deal_card
   else return invalid_command
 end
 end
@@ -65,9 +65,9 @@ end
 def runner
   # code runner here
  welcome
- initial_round
+ card_total = initial_round
  until card_total > 21
- hit?
+ card_total = hit?(card_total)
  display_card_total(card_total)
  end 
  end_game(card_total)
