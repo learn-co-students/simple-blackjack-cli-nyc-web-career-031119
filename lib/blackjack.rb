@@ -3,13 +3,12 @@ def welcome
 end
 
 def deal_card
-return  rand(1..11).to_i
+return  rand(1..11)
   # code #deal_card here
 end
 
 def display_card_total(card_total)
   puts "Your cards add up to #{card_total}"
-  return card_total
   # code #display_card_total here
 end
 
@@ -58,9 +57,9 @@ end
 def runner
  welcome  
   card_total = initial_round
-  while card_total < 21
+ until card_total > 20
     card_total = hit?(card_total)
-    card_total = display_card_total(card_total)
+    display_card_total(card_total)
   end
   end_game(card_total)
   # code runner here
